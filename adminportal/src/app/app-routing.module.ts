@@ -3,7 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  { path: 'user', component: UserComponent },
+  {
+    path: 'user-old',
+    component: UserComponent
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('../user/user.module').then(mod => mod.UserModule)
+  }
 ];
 
 @NgModule({
