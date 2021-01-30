@@ -1,1 +1,23 @@
-<p>iap-recepts works!</p>
+<h2>IAP Receipts</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ReceiptId</th>
+    <th>Receipt Provider</th>
+    <th>ProductId</th>
+    <th>Date of Purchase</th>
+    <th>Approximate Dollar Value</th>
+    <th>Refunded</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let receipt of portalSync.userIAPReceipts" [ngClass]="{ warning: receipt.refunded }">
+    <td>{{receipt.orderId ? receipt.orderId : receipt.receiptId}}</td>
+    <td>{{receipt.provider}}</td>
+    <td>{{receipt.productId}}</td>
+    <td>{{receipt.dateOfPurchase}}</td>
+    <td>{{receipt.approximateDollarValue}}</td>
+    <td>{{receipt.refunded}}</td>
+  </tr>
+  </tbody>
+</table>

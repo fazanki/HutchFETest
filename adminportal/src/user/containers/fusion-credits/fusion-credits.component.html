@@ -1,1 +1,21 @@
-<p>fusion-credits works!</p>
+<h2>Fusion Credits</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Manufacturer</th>
+    <th>Amount</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let fusionCredit of portalSync.fusionCredits">
+    <td>{{this.carManufacturerEnumMap[fusionCredit.manufacturerId]}}</td>
+    <td>
+      <input class="form-control" min="0" id="fusionCreditsAmount" type="number" [(ngModel)]="fusionCredit.amount" name="fusionCreditsAmount">
+    </td>
+    <td>
+      <button id="changeFusionCreditsButton" class="btn btn-success">Submit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

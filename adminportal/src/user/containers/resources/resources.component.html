@@ -1,1 +1,35 @@
-<p>resources works!</p>
+<h2>Resources</h2>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Image</th>
+      <th>ResourceId</th>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Level</th>
+      <th>Amount</th>
+      <th>MaxAmount</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let resource of portalSync.userResources | paginate: { id: 'pagination-user-resources', itemsPerPage: 9, currentPage: 1 }" >
+      <td class="col-sm-2">
+        <img src="https://rrimages.azureedge.net/16/resources/{{this.resourceMap.get(resource.resourceId).imageName}}.png" width="128" height="128">
+      </td>
+      <td class="col-sm-2">{{resource.resourceId}}</td>
+      <td class="col-sm-2">{{resourceMap.get(resource.resourceId).category}}</td>
+      <td class="col-sm-2">{{resourceMap.get(resource.resourceId).displayName}}</td>
+      <!-- as all displaynames start with stage x -->
+      <td class="col-sm-2">{{resourceMap.get(resource.resourceId).displayName.substr(6,1)}}</td>
+      <td class="col-sm-2">{{resource.amount}}</td>
+      <td class="col-sm-2">{{resourceMap.get(resource.resourceId).maxAmount}}</td>
+      <td class="col-sm-2">
+        <button id="addResource" class="btn btn-success" (click)="onAddResource(resource.resourceId)"><span class="fa fa-arrow-up"></span> </button>
+        <button id="removeResource" class="btn btn-danger" (click)="onRemoveResource(resource.resourceId)"><span class="fa fa-arrow-down"></span></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

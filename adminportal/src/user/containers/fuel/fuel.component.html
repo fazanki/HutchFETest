@@ -1,1 +1,47 @@
-<p>fuel works!</p>
+<h2>Fuel</h2>
+<div class="row">
+  <form class="form-horizontal" #fuelForm="ngForm">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <!-- Permanent fuel increase -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="permanentFuelIncrease">Fuel increase purchased?</label>
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-3">
+          <button type="button"
+                  class="btn btn-success">Purchase</button>
+        </div>
+      </div>
+      <!-- remaining -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="remaining">Fuel remaining:</label>
+        <div class="col-sm-6">
+          <input class="form-control" id="remaining" [ngModel]="portalSync.fuel && portalSync.fuel.remaining" name="remaining">
+        </div>
+        <div class="col-sm-2">
+          <button type="button"
+                  class="btn btn-success">Set Fuel</button>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <!-- timer -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="timer">Next fuel available:</label>
+        <div class="col-sm-6">
+          <input class="form-control" id="timer" [disabled]="true" [(ngModel)]="portalSync.fuel && portalSync.fuel.timer" name="timer">
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <!-- max -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="max">Max fuel:</label>
+        <div class="col-sm-6">
+          <input class="form-control" id="max" [disabled]="true" [(ngModel)]="portalSync.fuel && portalSync.fuel.max" name="max">
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </form>
+</div>
