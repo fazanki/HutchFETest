@@ -19,16 +19,16 @@ import * as fromComponents from './components';
 import * as fromServices from './services';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { ErrorLogsComponent } from './components/error-logs/error-logs.component';
-import { IapReceptsComponent } from './containers/iap-recepts/iap-recepts.component';
-import { OfferReceiptsComponent } from './containers/offer-receipts/offer-receipts.component';
-import { SocialDetailsComponent } from './containers/social-details/social-details.component';
-import { CarsComponent } from './containers/cars/cars.component';
-import { ResourcesComponent } from './containers/resources/resources.component';
-import { AugmentsComponent } from './containers/augments/augments.component';
-import { FuelComponent } from './containers/fuel/fuel.component';
-import { GiftsComponent } from './containers/gifts/gifts.component';
-import { FtueComponent } from './containers/ftue/ftue.component';
-import { FusionCreditsComponent } from './containers/fusion-credits/fusion-credits.component';
+import { IapReceptsComponent } from './components/iap-recepts/iap-recepts.component';
+import { OfferReceiptsComponent } from './components/offer-receipts/offer-receipts.component';
+import { SocialDetailsComponent } from './components/social-details/social-details.component';
+import { CarsComponent } from './components/cars/cars.component';
+import { ResourcesComponent } from './components/resources/resources.component';
+import { AugmentsComponent } from './components/augments/augments.component';
+import { FuelComponent } from './components/fuel/fuel.component';
+import { GiftsComponent } from './components/gifts/gifts.component';
+import { FtueComponent } from './components/ftue/ftue.component';
+import { FusionCreditsComponent } from './components/fusion-credits/fusion-credits.component';
 
 
 
