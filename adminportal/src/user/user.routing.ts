@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import {UserComponent} from './containers/user/user.component';
 import {AccountInfoComponent} from './containers/account-info/account-info.component';
+import {ErrorLogsComponent} from './containers/error-logs/error-logs.component';
 
 export const ROUTES: Routes = [
   {
@@ -12,6 +13,10 @@ export const ROUTES: Routes = [
       {
         path: 'account-info',
         component: AccountInfoComponent
+      },
+      {
+        path: 'error-logs',
+        component: ErrorLogsComponent
       }
     ]
   }
