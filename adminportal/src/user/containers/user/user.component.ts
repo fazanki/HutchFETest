@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationModel} from '../../models/navigation.model';
+import {UserNavigationModel} from '../../models/userNavigationModel';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
@@ -10,7 +10,7 @@ import {Location} from '@angular/common';
 })
 export class UserComponent implements OnInit {
 
-  navigation: NavigationModel[] = [
+  navigation: UserNavigationModel[] = [
     {
       label: 'Account Info',
       url: 'account-info',
@@ -67,8 +67,8 @@ export class UserComponent implements OnInit {
       isActive: false
     },
     {
-      label: 'Messages',
-      url: 'messages',
+      label: 'Fusion Credits',
+      url: 'fusion-credits',
       isActive: false
     },
   ];

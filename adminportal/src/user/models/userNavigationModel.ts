@@ -1,4 +1,4 @@
-export interface NavigationModel {
+export interface UserNavigationModel {
   label: string;
   url: string;
   isActive: boolean;
