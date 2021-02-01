@@ -6,6 +6,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import {RouterStateSerializer, StoreRouterConnectingModule} from '@ngrx/router-store';
+import {CustomSerializer} from '../user/store/reducers';
 
 @NgModule({
   declarations: [
@@ -16,9 +22,15 @@ import { UserComponent } from './user/user.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
+    !environment.production ? StoreDevtoolsModule.instrument({logOnly: true}) : [],
   ],
-  providers: [],
+  providers: [
+    {provide: RouterStateSerializer, useClass: CustomSerializer}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

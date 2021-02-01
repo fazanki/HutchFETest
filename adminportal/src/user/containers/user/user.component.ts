@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserNavigationModel} from '../../models/userNavigationModel';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
+import * as fromStore from '../../store';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-user',
@@ -73,9 +75,13 @@ export class UserComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router, private location: Location) {}
+  constructor(
+    private router: Router,
+    private location: Location,
+    private readonly store: Store<fromStore.UserState>) {}
 
   ngOnInit(): void {
+    this.store.dispatch(new fromStore.LoadUserData());
     this.updateLinks(this.location.path().split('/')[2]);
   }
 
