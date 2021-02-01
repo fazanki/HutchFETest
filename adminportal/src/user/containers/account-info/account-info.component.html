@@ -1,0 +1,196 @@
+<h2>Account Information</h2>
+<div class="row">
+<!--  <form class="form-horizontal" #userForm="ngForm">-->
+<!--    <div class="col-sm-1"></div>-->
+<!--    <div class="col-sm-8">-->
+<!--      &lt;!&ndash; hutchId &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="hutchId">Hutch Id</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="hutchId" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.hutchId" name="hutchId">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; appId &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="appId">App Id</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="appId" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.appId" name="appId">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; social name &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="socialName">Social Display Name</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="socialName" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.socialName" name="socialName">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; cheater &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="isCheater">Cheater</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; banned &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="accountStatus">Account Status</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; VIP tier 0 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="spender">Spender</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; VIP tier 1 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="vip1">VIP Tier 1 Member</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; VIP tier 2 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="vip2">VIP Tier 2 Member</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; VIP tier 3 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="vip3">VIP Tier 3 Member</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; VIP tier 4 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="vip4">VIP Tier 4 Member</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; Limited Data Use flag &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="ldu">Limited Data Use</label>-->
+<!--        <div class="col-sm-8">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; deviceId &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="deviceId">Device Id</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="deviceId" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.deviceId" name="deviceId">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; region &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="region">Region</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="region" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.region" name="region">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; registration date &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="registrationDate">Registration Date</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="registrationDate" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.registrationDate" name="registrationDate">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; last login date &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="lastLoginDate">Last Login Date</label>-->
+<!--        <div class="col-sm-8">-->
+<!--          <input class="form-control" id="lastLoginDate" [(ngModel)]="portalSync.userProfile && portalSync.userProfile.lastLoginDate" name="lastLoginDate">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; hardCurrency1 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="hardCurrency1">Gold</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="hardCurrency1" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.hardCurrency1" name="hardCurrency1">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="hardCurrency1Button" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; hardCurrency2 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="hardCurrency2">Cash</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="hardCurrency2" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.hardCurrency2" name="hardCurrency2">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="hardCurrency2Button" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; softCurrency1 &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="softCurrency1">Fusion Points</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="softCurrency1" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.softCurrency1" name="softCurrency1">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="softCurrency1Button" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; bronzeKeys &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="bronzeKeys">Bronze Keys</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="bronzeKeys" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.bronzeKeys" name="bronzeKeys">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="bronzeKeysButton" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; silverKeys &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="silverKeys">Silver Keys</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="silverKeys" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.silverKeys" name="silverKeys">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="silverKeysButton" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; goldKeys &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="goldKeys">Gold Keys</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="goldKeys" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.goldKeys" name="goldKeys">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="goldKeysButton" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; xp &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="xp">XP</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="xp" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.xp" name="xp">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="xpButton" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; level &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="level">Level</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="level" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.level" name="level">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="levelButton" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; level &ndash;&gt;-->
+<!--      <div class="form-group">-->
+<!--        <label class="col-sm-4 control-label" for="trophies">Trophies</label>-->
+<!--        <div class="col-sm-6">-->
+<!--          <input class="form-control" min="0" id="trophies" type="number" [ngModel]="portalSync.userProfile && portalSync.userProfile.trophies" name="trophies">-->
+<!--        </div>-->
+<!--        <div class="col-sm-2">-->
+<!--          <button id="trophiesButton" class="btn btn-success">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-3"></div>-->
+<!--  </form>-->
+</div>

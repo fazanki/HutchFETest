@@ -2,16 +2,19 @@
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import {UserComponent} from './containers/user/user.component';
+import {AccountInfoComponent} from './containers/account-info/account-info.component';
 
 export const ROUTES: Routes = [
   {
     path: '',
-    component: UserComponent
+    component: UserComponent,
+    children: [
+      {
+        path: 'account-info',
+        component: AccountInfoComponent
+      }
+    ]
   }
-  // {
-  //   path: 'user/:userId',
-  //   component: UserDetailsComponent
-  // },
   // {
   //   path: 'invite-user',
   //   component: InviteUserComponent,

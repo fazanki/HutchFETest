@@ -9,8 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import * as fromContainers from './containers';
 
 // // components
-// import * as fromComponents from './components';
-//
+import * as fromComponents from './components';
+
 // // services
 // import * as fromServices from './services';
 
@@ -24,8 +24,8 @@ import * as fromContainers from './containers';
     // EffectsModule.forFeature(effects),
     FormsModule,
   ],
-  exports: [...fromContainers.containers,],
-  declarations: [...fromContainers.containers,],
+  exports: [...fromContainers.containers, ...fromComponents.components],
+  declarations: [...fromContainers.containers, ...fromComponents.components],
   providers: []
 })
 
