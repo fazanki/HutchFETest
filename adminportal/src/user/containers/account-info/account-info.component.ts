@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {UserAppProfile} from '../../models/UserAppProfile';
+import {Observable} from 'rxjs';
+import {select, Store} from '@ngrx/store';
+import * as fromStore from '../../store';
 
 @Component({
   selector: 'app-account-info',
@@ -6,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-info.component.css']
 })
 export class AccountInfoComponent implements OnInit {
-
-  constructor() { }
+  userProfile$: Observable<UserAppProfile | {}>;
+  constructor( private readonly store: Store<fromStore.UserState>) { }
 
   ngOnInit(): void {
+    this.userProfile$ = this.store.pipe(select(fromStore.getUserProfile));
   }
 
 }
