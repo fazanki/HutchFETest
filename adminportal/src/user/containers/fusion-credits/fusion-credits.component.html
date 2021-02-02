@@ -8,14 +8,14 @@
   </tr>
   </thead>
   <tbody>
-<!--  <tr *ngFor="let fusionCredit of portalSync.fusionCredits">-->
-<!--    <td>{{this.carManufacturerEnumMap[fusionCredit.manufacturerId]}}</td>-->
-<!--    <td>-->
-<!--      <input class="form-control" min="0" id="fusionCreditsAmount" type="number" [(ngModel)]="fusionCredit.amount" name="fusionCreditsAmount">-->
-<!--    </td>-->
-<!--    <td>-->
-<!--      <button id="changeFusionCreditsButton" class="btn btn-success">Submit</button>-->
-<!--    </td>-->
-<!--  </tr>-->
+  <tr *ngFor="let fusionCredit of fusionCredits$ | async">
+    <td>{{fusionCredit.manufacturer}}</td>
+    <td>
+      <input class="form-control" min="0" id="fusionCreditsAmount" type="number" [(ngModel)]="fusionCredit.amount" name="fusionCreditsAmount">
+    </td>
+    <td>
+      <button id="changeFusionCreditsButton" class="btn btn-success">Submit</button>
+    </td>
+  </tr>
   </tbody>
 </table>

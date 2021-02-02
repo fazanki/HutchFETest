@@ -62,3 +62,8 @@ export const getUserFtueProgress = createSelector(
   getUserState,
   fromUser.getFtueProgress
 );
+
+export const getUserFusionCredits = createSelector(
+  getUserState,
+  fromUser.getFusionCredits
+);

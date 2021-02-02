@@ -10,6 +10,8 @@ import {UserAugment} from '../../models/UserAugment';
 import {Fuel} from '../../models/Fuel';
 import {FTUEProgress} from '../../models/FTUEProgress';
 import {DailyGiftState} from '../../models/DailyGift';
+import {FusionCredits} from '../../models/FusionCredits';
+import {Manufacturer} from '../../../app/enums/Manufacturer';
 
 export interface UserState {
   userStaticData: any;
@@ -25,6 +27,7 @@ export interface UserState {
   fuel: Fuel[] | {};
   ftueProgress: FTUEProgress[] | [];
   dailyGifts: DailyGiftState | {};
+  fusionCredits: FusionCredits[] | [];
   loading: boolean;
   loaded: boolean;
 }
@@ -43,6 +46,7 @@ export const initialState: UserState = {
   fuel: {},
   dailyGifts: {},
   ftueProgress: [],
+  fusionCredits: [],
   loaded: true,
   loading: true
 };
@@ -118,6 +122,12 @@ export function reducer(
           slot
         };
       });
+      const fusionCredits = user.fusionCredits.map(credit => {
+        return {
+          ...credit,
+          manufacturer: Manufacturer[credit.manufacturerId]
+        }
+      })
       return {
         ...state,
         user,
@@ -132,6 +142,7 @@ export function reducer(
         fuel,
         dailyGifts,
         ftueProgress,
+        fusionCredits,
         loaded: true
       };
     }
@@ -153,3 +164,4 @@ export const getUserAug = (state: UserState) => state.userAugments;
 export const getFuel = (state: UserState) => state.fuel;
 export const getDailyGifts = (state: UserState) => state.dailyGifts;
 export const getFtueProgress = (state: UserState) => state.ftueProgress;
+export const getFusionCredits = (state: UserState) => state.fusionCredits;
