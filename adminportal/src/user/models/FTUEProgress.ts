@@ -4,4 +4,5 @@ export interface FTUEProgress {
     ftueStory: string;
     lastStepStarted: string;
     lastStepComplete: string;
+    stepOptions: string[]
 }

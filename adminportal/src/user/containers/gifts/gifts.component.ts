@@ -12,7 +12,7 @@ import {Observable} from 'rxjs';
 export class GiftsComponent implements OnInit {
 
   constructor(private readonly store: Store<fromStore.UserState>) { }
-  dailyGift$: Observable<DailyGiftState>;
+  dailyGift$: Observable<DailyGiftState | {}>;
 
   ngOnInit(): void {
     this.dailyGift$ = this.store.pipe(select(fromStore.getUserDailyGifts));

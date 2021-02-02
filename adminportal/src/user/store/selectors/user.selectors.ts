@@ -57,3 +57,8 @@ export const getUserDailyGifts = createSelector(
   getUserState,
   fromUser.getDailyGifts
 );
+
+export const getUserFtueProgress = createSelector(
+  getUserState,
+  fromUser.getFtueProgress
+);

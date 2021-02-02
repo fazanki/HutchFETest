@@ -8,6 +8,7 @@ import {UserCar} from '../../models/UserCar';
 import {Resource} from '../../models/Resource';
 import {UserAugment} from '../../models/UserAugment';
 import {Fuel} from '../../models/Fuel';
+import {FTUEProgress} from '../../models/FTUEProgress';
 import {DailyGiftState} from '../../models/DailyGift';
 
 export interface UserState {
@@ -22,7 +23,8 @@ export interface UserState {
   userResources: Resource[] | [];
   userAugments: UserAugment[] | [];
   fuel: Fuel[] | {};
-  dailyGifts: DailyGiftState;
+  ftueProgress: FTUEProgress[] | [];
+  dailyGifts: DailyGiftState | {};
   loading: boolean;
   loaded: boolean;
 }
@@ -40,6 +42,7 @@ export const initialState: UserState = {
   userAugments: [],
   fuel: {},
   dailyGifts: {},
+  ftueProgress: [],
   loaded: true,
   loading: true
 };
@@ -66,6 +69,12 @@ export function reducer(
       const socialDetails = user.socialAccounts;
       const fuel = user.fuel;
       const dailyGifts =  user.dailyGift;
+      const ftueProgress = user.ftueProgress.map(ftue => {
+        return {
+          ...ftue,
+          stepOptions: ['todo 1', 'todo 2']  // get this from the static state
+        };
+      });
       const userCars = user.userCars.map(c => {
         const carObj = state.userStaticData.cars.filter(car => car.carId === c.carId)[0];
         const imageName = carObj.imageName;
@@ -122,6 +131,7 @@ export function reducer(
         userAugments,
         fuel,
         dailyGifts,
+        ftueProgress,
         loaded: true
       };
     }
@@ -142,3 +152,4 @@ export const getUserRes = (state: UserState) => state.userResources;
 export const getUserAug = (state: UserState) => state.userAugments;
 export const getFuel = (state: UserState) => state.fuel;
 export const getDailyGifts = (state: UserState) => state.dailyGifts;
+export const getFtueProgress = (state: UserState) => state.ftueProgress;
