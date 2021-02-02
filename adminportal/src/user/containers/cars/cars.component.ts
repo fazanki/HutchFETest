@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import * as fromStore from '../../store';
 import {Observable} from 'rxjs';
-import {Car} from '../../models/Car';
 import {UserCar} from '../../models/UserCar';
 
 @Component({

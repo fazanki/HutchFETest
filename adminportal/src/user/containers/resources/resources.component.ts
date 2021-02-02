@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {select, Store} from '@ngrx/store';
+import * as fromStore from '../../store';
+import {Observable} from 'rxjs';
+import {Resource} from '../../models/Resource';
 
 @Component({
   selector: 'app-resources',
@@ -6,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resources.component.css']
 })
 export class ResourcesComponent implements OnInit {
-
-  constructor() { }
+  resources$: Observable<Resource[]>;
+  constructor(private readonly store: Store<fromStore.UserState>) { }
 
   ngOnInit(): void {
+    this.resources$ = this.store.pipe(select(fromStore.getUserResource));
+  }
+
+  onAddResource(a): void {
+    // do something
+  }
+
+  onRemoveResource(a):void {
+    // do something
   }
 
 }

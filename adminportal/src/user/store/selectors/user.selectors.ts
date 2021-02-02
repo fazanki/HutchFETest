@@ -37,3 +37,8 @@ export const getUserCar = createSelector(
   getUserState,
   fromUser.getCars
 );
+
+export const getUserResource = createSelector(
+  getUserState,
+  fromUser.getUserRes
+);

@@ -5,6 +5,7 @@ import {UserIAPReceipt} from '../../models/UserIAPReceipt';
 import {UserOfferReceipt} from '../../models/UserOfferReceipt';
 import {SocialDetails} from '../../models/SocialDetails';
 import {UserCar} from '../../models/UserCar';
+import {Resource} from '../../models/Resource';
 
 export interface UserState {
   userStaticData: any;
@@ -15,6 +16,7 @@ export interface UserState {
   offerReceipts: UserOfferReceipt[] | [];
   socialDetails: SocialDetails[] | [];
   userCars: UserCar[] | [];
+  userResources: Resource[] | [];
   loading: boolean;
   loaded: boolean;
 }
@@ -28,6 +30,7 @@ export const initialState: UserState = {
   offerReceipts: [],
   socialDetails: [],
   userCars: [],
+  userResources: [],
   loaded: true,
   loading: true
 };
@@ -61,9 +64,25 @@ export function reducer(
           imageName,
           modelName,
           stars
-        }
+        };
       });
-
+      const userResources = user.userResources.map(res => {
+        const resObj = state.userStaticData.resources.filter(re => re.resourceId === res.resourceId)[0];
+        const imageName = resObj.imageName;
+        const resourceId = res.resourceId;
+        const category = resObj.category;
+        const displayName = resObj.displayName;
+        const maxAmount = resObj.maxAmount;
+        const amount = res.amount;
+        return {
+          imageName,
+          resourceId,
+          category,
+          displayName,
+          maxAmount,
+          amount
+        };
+      })
       return {
         ...state,
         user,
@@ -73,6 +92,7 @@ export function reducer(
         offerReceipts,
         socialDetails,
         userCars,
+        userResources,
         loaded: true
       };
     }
@@ -89,3 +109,4 @@ export const getIAP = (state: UserState) => state.userIAPReceipts;
 export const getUserOfferReceipts = (state: UserState) => state.offerReceipts;
 export const getSocialDetails = (state: UserState) => state.socialDetails;
 export const getCars = (state: UserState) => state.userCars;
+export const getUserRes = (state: UserState) => state.userResources;
