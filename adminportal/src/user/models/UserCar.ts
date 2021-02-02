@@ -1,4 +1,5 @@
-import { CarSourceEnum } from '../../enums/CarSourceEnum';
+import {CarSourceEnum} from '../../app/enums/CarSourceEnum';
+
 
 export interface UserCar {
     userCarId: string;

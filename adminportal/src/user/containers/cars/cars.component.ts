@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {select, Store} from '@ngrx/store';
+import * as fromStore from '../../store';
+import {Observable} from 'rxjs';
+import {Car} from '../../models/Car';
+import {UserCar} from '../../models/UserCar';
 
 @Component({
   selector: 'app-cars',
@@ -6,10 +11,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
-
-  constructor() { }
+  cars$: Observable<UserCar[]>;
+  constructor(private readonly store: Store<fromStore.UserState>) { }
 
   ngOnInit(): void {
+    this.cars$ = this.store.pipe(select(fromStore.getUserCar));
+  }
+
+  onSelectCar(): void {
+    // do something
+  }
+
+  onRemoveCar(): void {
+    // do something
   }
 
 }

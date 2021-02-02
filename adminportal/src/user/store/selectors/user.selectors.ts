@@ -27,3 +27,13 @@ export const getUserOffer = createSelector(
   getUserState,
   fromUser.getUserOfferReceipts
 );
+
+export const getUserSocialDetails = createSelector(
+  getUserState,
+  fromUser.getSocialDetails
+);
+
+export const getUserCar = createSelector(
+  getUserState,
+  fromUser.getCars
+);

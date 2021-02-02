@@ -3,7 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { PortalSyncService } from '../../services';
+import {PortalSyncService, StaticDataService} from '../../services';
 import * as usersActions from '../actions';
 
 @Injectable()
@@ -11,7 +11,24 @@ export class UserEffects {
   constructor(
     private actions$: Actions,
     private usersService: PortalSyncService,
+    private userStaticDataService: StaticDataService
   ) { }
+
+  @Effect()
+  loadUsersStaticData$ = this.actions$.pipe(
+    ofType(usersActions.LOAD_USER_STATIC_DATA),
+    switchMap(() => {
+      return this.userStaticDataService.getStaticData('placeholder', 'placeholder', 'placeholder').pipe(
+        map(userDetails => {
+
+          return new usersActions.LoadUserStaticDataSuccess(userDetails);
+        }),
+        catchError(error => {
+          return of(new usersActions.LoadUserStaticDataFail(error));
+        })
+      );
+    })
+  );
 
   @Effect()
   loadUsersData$ = this.actions$.pipe(
@@ -20,10 +37,10 @@ export class UserEffects {
       return this.usersService.getPortalSync('placeholder', 'placeholder', 'placeholder').pipe(
         map(userDetails => {
 
-          return new usersActions.LoadUsersSuccess(userDetails);
+          return new usersActions.LoadUserDataSuccess(userDetails);
         }),
         catchError(error => {
-          return of(new usersActions.LoadusersFail(error));
+          return of(new usersActions.LoadUsersDataFail(error));
         })
       );
     })

@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
   public orderedFTUEConfig: any = null;
   public carManufacturerEnumMap: any;
 
-  constructor(public portalSyncService: PortalSyncService, public staticDataService: StaticDataService) { }
+    constructor(public portalSyncService: PortalSyncService, public staticDataService: StaticDataService) { }
 
   ngOnInit(): void {
     this.staticDataService.getStaticData("placeholder", "placeholder", "placeholder").subscribe(staticDataResponse => {

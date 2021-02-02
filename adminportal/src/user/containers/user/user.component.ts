@@ -81,6 +81,7 @@ export class UserComponent implements OnInit {
     private readonly store: Store<fromStore.UserState>) {}
 
   ngOnInit(): void {
+    this.store.dispatch(new fromStore.LoadUserStaticData());
     this.store.dispatch(new fromStore.LoadUserData());
     this.updateLinks(this.location.path().split('/')[2]);
   }
