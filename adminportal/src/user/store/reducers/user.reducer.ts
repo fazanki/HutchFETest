@@ -6,6 +6,8 @@ import {UserOfferReceipt} from '../../models/UserOfferReceipt';
 import {SocialDetails} from '../../models/SocialDetails';
 import {UserCar} from '../../models/UserCar';
 import {Resource} from '../../models/Resource';
+import {UserAugment} from '../../models/UserAugment';
+import {Fuel} from '../../models/Fuel';
 
 export interface UserState {
   userStaticData: any;
@@ -17,6 +19,8 @@ export interface UserState {
   socialDetails: SocialDetails[] | [];
   userCars: UserCar[] | [];
   userResources: Resource[] | [];
+  userAugments: UserAugment[] | [];
+  fuel: Fuel[] | [];
   loading: boolean;
   loaded: boolean;
 }
@@ -31,6 +35,8 @@ export const initialState: UserState = {
   socialDetails: [],
   userCars: [],
   userResources: [],
+  userAugments: [],
+  fuel: [],
   loaded: true,
   loading: true
 };
@@ -55,6 +61,7 @@ export function reducer(
       const userIAPReceipts = user.userIAPReceipts;
       const offerReceipts = user.userOfferReceipts;
       const socialDetails = user.socialAccounts;
+      const fuel = user.fuel;
       const userCars = user.userCars.map(c => {
         const carObj = state.userStaticData.cars.filter(car => car.carId === c.carId)[0];
         const imageName = carObj.imageName;
@@ -82,7 +89,22 @@ export function reducer(
           maxAmount,
           amount
         };
-      })
+      });
+      const userAugments = user.userAugments.map(a => {
+        const augObj = state.userStaticData.augments.filter(aug => aug.augmentId === a.augmentId)[0];
+        const imageName = augObj.imageName;
+        const displayName = augObj.displayName;
+        const userCarId = a.userCarId;
+        const userAugmentId = a.userAugmentId;
+        const slot = a.slot;
+        return {
+          imageName,
+          displayName,
+          userCarId,
+          userAugmentId,
+          slot
+        };
+      });
       return {
         ...state,
         user,
@@ -93,6 +115,8 @@ export function reducer(
         socialDetails,
         userCars,
         userResources,
+        userAugments,
+        fuel,
         loaded: true
       };
     }
@@ -110,3 +134,5 @@ export const getUserOfferReceipts = (state: UserState) => state.offerReceipts;
 export const getSocialDetails = (state: UserState) => state.socialDetails;
 export const getCars = (state: UserState) => state.userCars;
 export const getUserRes = (state: UserState) => state.userResources;
+export const getUserAug = (state: UserState) => state.userAugments;
+export const getFuel = (state: UserState) => state.fuel;

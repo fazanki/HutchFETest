@@ -42,3 +42,13 @@ export const getUserResource = createSelector(
   getUserState,
   fromUser.getUserRes
 );
+
+export const getUserAugments = createSelector(
+  getUserState,
+  fromUser.getUserAug
+);
+
+export const getUserFuel = createSelector(
+  getUserState,
+  fromUser.getFuel
+);
