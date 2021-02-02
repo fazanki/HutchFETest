@@ -52,3 +52,8 @@ export const getUserFuel = createSelector(
   getUserState,
   fromUser.getFuel
 );
+
+export const getUserDailyGifts = createSelector(
+  getUserState,
+  fromUser.getDailyGifts
+);

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {select, Store} from '@ngrx/store';
+import * as fromStore from '../../store';
+import {DailyGiftState} from '../../models/DailyGift';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-gifts',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GiftsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly store: Store<fromStore.UserState>) { }
+  dailyGift$: Observable<DailyGiftState>;
 
   ngOnInit(): void {
+    this.dailyGift$ = this.store.pipe(select(fromStore.getUserDailyGifts));
   }
 
 }

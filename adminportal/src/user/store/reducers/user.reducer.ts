@@ -8,6 +8,7 @@ import {UserCar} from '../../models/UserCar';
 import {Resource} from '../../models/Resource';
 import {UserAugment} from '../../models/UserAugment';
 import {Fuel} from '../../models/Fuel';
+import {DailyGiftState} from '../../models/DailyGift';
 
 export interface UserState {
   userStaticData: any;
@@ -20,7 +21,8 @@ export interface UserState {
   userCars: UserCar[] | [];
   userResources: Resource[] | [];
   userAugments: UserAugment[] | [];
-  fuel: Fuel[] | [];
+  fuel: Fuel[] | {};
+  dailyGifts: DailyGiftState;
   loading: boolean;
   loaded: boolean;
 }
@@ -36,7 +38,8 @@ export const initialState: UserState = {
   userCars: [],
   userResources: [],
   userAugments: [],
-  fuel: [],
+  fuel: {},
+  dailyGifts: {},
   loaded: true,
   loading: true
 };
@@ -62,6 +65,7 @@ export function reducer(
       const offerReceipts = user.userOfferReceipts;
       const socialDetails = user.socialAccounts;
       const fuel = user.fuel;
+      const dailyGifts =  user.dailyGift;
       const userCars = user.userCars.map(c => {
         const carObj = state.userStaticData.cars.filter(car => car.carId === c.carId)[0];
         const imageName = carObj.imageName;
@@ -117,6 +121,7 @@ export function reducer(
         userResources,
         userAugments,
         fuel,
+        dailyGifts,
         loaded: true
       };
     }
@@ -136,3 +141,4 @@ export const getCars = (state: UserState) => state.userCars;
 export const getUserRes = (state: UserState) => state.userResources;
 export const getUserAug = (state: UserState) => state.userAugments;
 export const getFuel = (state: UserState) => state.fuel;
+export const getDailyGifts = (state: UserState) => state.dailyGifts;

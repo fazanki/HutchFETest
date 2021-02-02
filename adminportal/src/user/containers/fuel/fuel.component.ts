@@ -10,7 +10,7 @@ import {Fuel} from '../../models/Fuel';
   styleUrls: ['./fuel.component.css']
 })
 export class FuelComponent implements OnInit {
-  fuel$: Observable<Fuel[] | []>;
+  fuel$: Observable<Fuel | {}>;
   constructor(private readonly store: Store<fromStore.UserState>) { }
 
   ngOnInit(): void {
