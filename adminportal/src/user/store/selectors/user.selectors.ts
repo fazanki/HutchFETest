@@ -12,3 +12,18 @@ export const getUserProfile = createSelector(
   getUserState,
   fromUser.getPrifile
 );
+
+export const getUserErrors = createSelector(
+  getUserState,
+  fromUser.getErrorLogs
+);
+
+export const getIAPReceipts = createSelector(
+  getUserState,
+  fromUser.getIAP
+);
+
+export const getUserOffer = createSelector(
+  getUserState,
+  fromUser.getUserOfferReceipts
+);

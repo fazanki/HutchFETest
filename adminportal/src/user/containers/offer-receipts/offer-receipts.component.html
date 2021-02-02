@@ -9,13 +9,13 @@
   </tr>
   </thead>
   <tbody>
-<!--  <tr *ngFor="let receipt of portalSync.userOfferReceipts">-->
-<!--    <td>-->
-<!--      <a routerLink="/offer/{{receipt.offerId}}" target="_blank">{{receipt.offerId}}</a>-->
-<!--    </td>-->
-<!--    <td>{{receipt.numTimesClaimed}}</td>-->
-<!--    <td>{{receipt.triggerDates.length > 0 ? receipt.triggerDates[receipt.triggerDates.length - 1] : 'Not triggered'}}</td>-->
-<!--    <td>{{receipt.awardDates.length > 0 ? receipt.awardDates[receipt.awardDates.length - 1] : 'Not Claimed'}}</td>-->
-<!--  </tr>-->
+  <tr *ngFor="let receipt of userOfferReceipts$ | async">
+    <td>
+      <a routerLink="/offer/{{receipt.offerId}}" target="_blank">{{receipt.offerId}}</a>
+    </td>
+    <td>{{receipt.numTimesClaimed}}</td>
+    <td>{{receipt.triggerDates.length > 0 ? receipt.triggerDates[receipt.triggerDates.length - 1] : 'Not triggered'}}</td>
+    <td>{{receipt.awardDates.length > 0 ? receipt.awardDates[receipt.awardDates.length - 1] : 'Not Claimed'}}</td>
+  </tr>
   </tbody>
 </table>

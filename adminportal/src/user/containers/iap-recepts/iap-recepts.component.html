@@ -11,13 +11,13 @@
   </tr>
   </thead>
   <tbody>
-<!--  <tr *ngFor="let receipt of portalSync.userIAPReceipts" [ngClass]="{ warning: receipt.refunded }">-->
-<!--    <td>{{receipt.orderId ? receipt.orderId : receipt.receiptId}}</td>-->
-<!--    <td>{{receipt.provider}}</td>-->
-<!--    <td>{{receipt.productId}}</td>-->
-<!--    <td>{{receipt.dateOfPurchase}}</td>-->
-<!--    <td>{{receipt.approximateDollarValue}}</td>-->
-<!--    <td>{{receipt.refunded}}</td>-->
-<!--  </tr>-->
+  <tr *ngFor="let receipt of IAPreceipts$ | async" [ngClass]="{ warning: receipt.refunded }">
+    <td>{{receipt.orderId ? receipt.orderId : receipt.receiptId}}</td>
+    <td>{{receipt.provider}}</td>
+    <td>{{receipt.productId}}</td>
+    <td>{{receipt.dateOfPurchase}}</td>
+    <td>{{receipt.approximateDollarValue}}</td>
+    <td>{{receipt.refunded}}</td>
+  </tr>
   </tbody>
 </table>

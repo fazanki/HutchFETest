@@ -1,5 +1,6 @@
-import { OfferTypeEnum } from '../../enums/OfferType';
-import { OfferPlacementType } from '../../enums/OfferPlacementType';
+import {OfferTypeEnum} from '../../app/enums/OfferType';
+import {OfferPlacementType} from '../../app/enums/OfferPlacementType';
+
 
 export interface Offer {
     id: string;
