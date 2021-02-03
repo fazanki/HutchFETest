@@ -15,7 +15,6 @@ import {Manufacturer} from '../../../app/enums/Manufacturer';
 
 export interface UserState {
   userStaticData: any;
-  user: object;
   userProfile: UserAppProfile | {};
   errorLogs: LogEntry[] | [];
   userIAPReceipts: UserIAPReceipt[] | [];
@@ -34,7 +33,6 @@ export interface UserState {
 
 export const initialState: UserState = {
   userStaticData: {},
-  user: {},
   userProfile: {},
   errorLogs: [],
   userIAPReceipts: [],
@@ -48,7 +46,7 @@ export const initialState: UserState = {
   ftueProgress: [],
   fusionCredits: [],
   loaded: true,
-  loading: true
+  loading: false
 };
 
 export function reducer(
@@ -126,11 +124,10 @@ export function reducer(
         return {
           ...credit,
           manufacturer: Manufacturer[credit.manufacturerId]
-        }
-      })
+        };
+      });
       return {
         ...state,
-        user,
         userProfile,
         errorLogs,
         userIAPReceipts,
@@ -152,7 +149,6 @@ export function reducer(
   }
 }
 
-export const getUser = (state: UserState) => state.user;
 export const getPrifile = (state: UserState) => state.userProfile;
 export const getErrorLogs = (state: UserState) => state.errorLogs;
 export const getIAP = (state: UserState) => state.userIAPReceipts;

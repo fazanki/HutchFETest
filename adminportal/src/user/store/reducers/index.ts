@@ -16,7 +16,6 @@ export const getRootUserState = createFeatureSelector<UserState>(
   'user'
 );
 
-
 export interface RouterStateUrl {
   url: string;
   queryParams: Params;
