@@ -2,7 +2,7 @@
 ****
 ## Hutched FE Test - Approach explained
 Given the time constrains i have done following: 
-- have split existing user component into sub components. These components are within the containers directory as they are 'smart' components containing the state for that component.These further should be split into smaller stateless components that sit under the components directory.
+- have split existing user component into sub components. These components are within the containers directory as they are 'smart' components containing the state for that component.These further should be split into smaller stateless reusable components that sit under the components directory.
 - have moved user feature in its own module that is lazy loaded when on 'user/' route - this improves preformance and it scales very well 
 - have left the original code as it is and it is still accessible under 'user-old/' route - it can be just deleted but left for comparison purposes   
 - have introduced 'ngrx' sate management solution and have moved application logic within the ngrx, leaving components free of logic. If ngrx chrome dev tools are installed state action can be observed there This massively improves scalability, also makes the app very easy do debug as its using immutable strategy .
