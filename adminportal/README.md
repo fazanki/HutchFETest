@@ -10,8 +10,10 @@ Given the time constrains I have done the following:
 - I kept simple UX as there is not much going on atm but it can scale well.
 
 Todo: 
-- BDD and unit testing hasn't been done due to time constrains but as the logic is with the ngrx, which is using functional programming approach which is very easy to test. If given opportunity can provide with mmany examples for this kind of unit testing. 
-- rewrite forms using Reactive Form approach.  
+- BDD and unit testing hasn't been done due to time constrains but as the logic is with the ngrx, which is using functional programming approach, that is very easy to test. If given opportunity can provide with mmany examples for this kind of unit testing. 
+- rewrite forms using Reactive Form approach. 
+
+I have introduced this approach to few teams and it proved to be a great success for developing complex applications that scale and preform well. Hope it fits your needs too.  
 ****
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
